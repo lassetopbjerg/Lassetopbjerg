@@ -4,7 +4,7 @@ Lasse Topbjerg Storgaard's own website (painter, Mols, Denmark), moving from Squ
 
 ## Status (3 Nov 2026)
 
-The site is built and tested with demo images, but it has **no paintings yet and is not online**. The old Squarespace site is still live, so do NOT cancel Squarespace or move the domain until the new site is live and Lasse has checked it.
+The site is built and tested with demo images, and pushed to GitHub (3 Nov 2026), but it has **no paintings yet**. The old Squarespace site is still live, so do NOT cancel Squarespace or move the domain until the new site is live and Lasse has checked it.
 
 ### Steps, in order
 
@@ -17,12 +17,7 @@ The site is built and tested with demo images, but it has **no paintings yet and
    If Lasse has better originals on his PC, use those instead and keep the same `works/<year>/NN.jpg` layout. Make thumbs about 750px wide in `works/<year>/thumbs/`, and keep large files at 2500px or less.
 2. **Fill in works.js with Lasse:** title (Danish, plus English if different), medium, size, and status `available` / `sold` / `private` / `""`. Mark ONE painting `featured: true` for the top of the site; otherwise the newest painting is used. Never invent titles or sizes. Leave a field empty if Lasse doesn't know it.
 3. **Portrait:** put a photo of Lasse at `portrait.jpg` (shown in "Om"). Without it, the About section is text only, which also works.
-4. **Create the repo and publish:**
-   ```bash
-   gh repo create lassetopbjerg/lassetopbjerg.com --public --source . --push
-   gh api -X POST repos/lassetopbjerg/lassetopbjerg.com/pages -f "source[branch]=main" -f "source[path]=/"
-   ```
-   Check https://lassetopbjerg.github.io/lassetopbjerg.com/ on a phone. Since a project page lives in a subfolder, all paths in the site are relative; keep them that way.
+4. **Repo and publishing:** the repo is `lassetopbjerg/Lassetopbjerg` (created by Lasse on 3 Nov 2026), and GitHub Pages serves `main`, folder `/`, at https://lassetopbjerg.github.io/Lassetopbjerg/. Pushing to `main` updates the site. Check it on a phone after each change. Since a project page lives in a subfolder, all paths in the site are relative; keep them that way.
 5. **Move the domain lassetopbjerg.com.** First find out where it is registered (Squarespace → Settings → Domains). Either keep it there without a website plan or transfer it to one.com (where malerefugium.dk is). DNS: four A records for `@` to 185.199.108.153 / .109.153 / .110.153 / .111.153 and `www` CNAME to `lassetopbjerg.github.io`; remove Squarespace's own records for `@` and `www`. Only once `http://lassetopbjerg.com` resolves to GitHub: add a `CNAME` file containing `lassetopbjerg.com`, check Settings → Pages shows a green DNS check, then tick Enforce HTTPS. (Lesson from malerefugium.dk: adding the CNAME file before DNS works makes the github.io address forward to a domain that doesn't load.)
    Also check whether any email uses the domain (MX records) before changing DNS. Lasse uses Gmail, so probably not.
 6. **Cancel Squarespace** only after the site is live on lassetopbjerg.com. Note the renewal date first.
