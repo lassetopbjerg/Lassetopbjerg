@@ -21,7 +21,7 @@ The site is built and tested with demo images, and pushed to GitHub (3 Nov 2026)
 5. **Move the domain lassetopbjerg.com.** First find out where it is registered (Squarespace → Settings → Domains). Either keep it there without a website plan or transfer it to one.com (where malerefugium.dk is). DNS: four A records for `@` to 185.199.108.153 / .109.153 / .110.153 / .111.153 and `www` CNAME to `lassetopbjerg.github.io`; remove Squarespace's own records for `@` and `www`. Only once `http://lassetopbjerg.com` resolves to GitHub: add a `CNAME` file containing `lassetopbjerg.com`, check Settings → Pages shows a green DNS check, then tick Enforce HTTPS. (Lesson from malerefugium.dk: adding the CNAME file before DNS works makes the github.io address forward to a domain that doesn't load.)
    Also check whether any email uses the domain (MX records) before changing DNS. Lasse uses Gmail, so probably not.
 6. **Cancel Squarespace** only after the site is live on lassetopbjerg.com. Note the renewal date first.
-7. In `window.SITE` in index.html, change `retreatUrl` to https://malerefugium.dk once that domain works.
+7. Done 3 Nov 2026: all retreat links point to https://malerefugium.dk/.
 
 ## Structure
 
