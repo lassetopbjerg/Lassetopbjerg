@@ -1,0 +1,465 @@
+<!doctype html>
+<html lang="da">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lasse Topbjerg Storgaard · Maler · Mols</title>
+<meta name="description" content="Lasse Topbjerg Storgaard maler i olie i de gamle mestres tradition: figurer, portrætter og landskabet på Mols. Painter in the classical tradition, Mols, Denmark.">
+<meta property="og:title" content="Lasse Topbjerg Storgaard · Maler">
+<meta property="og:description" content="Oliemaleri i de gamle mestres tradition. Mols, Danmark.">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&family=Source+Serif+4:opsz,wght@8..60,400&display=swap" rel="stylesheet">
+<script>
+  // ============================================================
+  // RET HER / EDIT HERE
+  // The paintings themselves are listed in works.js.
+  // ============================================================
+  window.SITE = {
+    email: "lassetopbjerg@gmail.com",
+    phone: "+45 31 17 75 06",
+    retreatUrl: "https://lassetopbjerg.github.io/retreat/"   // change to https://malerefugium.dk when that domain works
+  };
+</script>
+<script src="works.js"></script>
+<style>
+  :root {
+    --ground: #17120E;
+    --ink: #EEE5D6;
+    --body: #D8CCBA;
+    --muted: #A3957F;
+    --rule: #382E26;
+    --dark: #0F0C09;
+    --gold: #C8A35E;
+    --caps: "Cinzel", "Trajan Pro", Georgia, serif;
+  }
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    background: var(--ground);
+    color: var(--ink);
+    font-family: "Source Serif 4", Georgia, serif;
+    font-size: 18px;
+    line-height: 1.6;
+  }
+  a { color: var(--ink); text-underline-offset: 4px; }
+  a:hover { color: var(--gold); }
+  a:focus-visible, button:focus-visible, summary:focus-visible { outline: 2px solid var(--gold); outline-offset: 4px; }
+  img { display: block; max-width: 100%; }
+
+  /* Language: one version shown at a time */
+  html[data-show="da"] [lang="en"]:not(html):not(.flag-link),
+  html[data-show="en"] [lang="da"]:not(html):not(.flag-link) { display: none !important; }
+  html[data-show="da"] .flag-link[lang="en"] .flag,
+  html[data-show="en"] .flag-link[lang="da"] .flag { opacity: 0.45; }
+
+  /* ---------- Header with the menu ---------- */
+  header {
+    position: sticky; top: 0; z-index: 10;
+    display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap;
+    gap: 4px 32px;
+    padding: 16px clamp(16px, 5vw, 48px);
+    background: rgba(23, 18, 14, 0.94);
+    backdrop-filter: blur(6px);
+    border-bottom: 1px solid var(--rule);
+  }
+  header a { text-decoration: none; }
+  .name { font-family: var(--caps); font-size: 17px; letter-spacing: 0.06em; padding: 10px 0; }
+  .menu { display: flex; align-items: center; gap: 28px; font-family: var(--caps); font-size: 15px; letter-spacing: 0.08em; }
+  .menu a { padding: 10px 0; color: var(--body); }
+  .menu a:hover, .menu a[aria-current="true"] { color: var(--gold); }
+  .flags { display: flex; gap: 14px; margin-left: 8px; }
+  .flag-link { display: flex; align-items: center; padding: 10px 0; }
+  .flag { display: block; box-shadow: 0 0 0 1px var(--rule); }
+
+  @media (max-width: 640px) {
+    header { padding: 10px 16px; }
+    .name { font-size: 15px; flex-basis: 100%; padding: 6px 0 0; }
+    .menu { gap: 20px; font-size: 14px; flex-basis: 100%; justify-content: space-between; }
+    .flags { margin-left: auto; }
+  }
+
+  /* ---------- Hero ---------- */
+  .hero {
+    display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); align-items: center;
+    gap: clamp(24px, 5vw, 72px);
+    max-width: 1180px; margin: 0 auto;
+    padding: clamp(32px, 6vw, 80px) clamp(16px, 5vw, 48px);
+  }
+  .hero-img { width: 100%; max-height: 78vh; object-fit: contain; background: var(--dark); }
+  .hero-text { display: flex; flex-direction: column; gap: 20px; }
+  .kicker { margin: 0; font-family: var(--caps); font-size: 14px; letter-spacing: 0.12em; color: var(--gold); }
+  h1 { margin: 0; font-family: var(--caps); font-weight: 400; font-size: clamp(32px, 5vw, 52px); line-height: 1.12; letter-spacing: 0.03em; }
+  .lede { margin: 0; color: var(--body); font-size: 19px; max-width: 34em; }
+  .button {
+    align-self: flex-start; display: inline-block;
+    font-family: var(--caps); font-size: 15px; letter-spacing: 0.1em;
+    padding: 15px 28px; min-height: 44px;
+    color: var(--ground); background: var(--gold); text-decoration: none; border: 0;
+  }
+  .button:hover { color: var(--ground); background: var(--ink); }
+  @media (max-width: 760px) {
+    .hero { grid-template-columns: 1fr; padding-top: 16px; }
+    .hero-img { max-height: 62vh; }
+  }
+
+  /* ---------- Sections ---------- */
+  section.block {
+    max-width: 1180px; margin: 0 auto;
+    padding: clamp(56px, 8vw, 104px) clamp(16px, 5vw, 48px);
+    border-top: 1px solid var(--rule);
+    scroll-margin-top: 70px;
+  }
+  h2 { margin: 0; font-family: var(--caps); font-weight: 400; font-size: clamp(26px, 4vw, 34px); letter-spacing: 0.04em; }
+  .section-head { display: flex; flex-direction: column; gap: 8px; margin-bottom: 40px; }
+  .note { margin: 0; font-size: 15px; color: var(--muted); }
+
+  /* ---------- Gallery: one fold-out per year, newest first ---------- */
+  .years { border-top: 1px solid var(--rule); }
+  .year { border-bottom: 1px solid var(--rule); }
+  .year summary {
+    list-style: none; cursor: pointer;
+    display: grid; grid-template-columns: auto 1fr auto; align-items: center; gap: 24px;
+    padding: 20px 0; min-height: 44px;
+  }
+  .year summary::-webkit-details-marker { display: none; }
+  .year-label { font-family: var(--caps); font-size: 24px; letter-spacing: 0.04em; min-width: 5.5em; }
+  .peek { display: flex; gap: 8px; overflow: hidden; }
+  .peek img { width: 64px; height: 64px; object-fit: cover; background: var(--dark); opacity: 0.85; }
+  .year[open] .peek { visibility: hidden; }
+  .year-count { font-size: 15px; color: var(--muted); white-space: nowrap; }
+  .year-count::after { content: "  +"; color: var(--gold); }
+  .year[open] .year-count::after { content: "  –"; }
+  @media (max-width: 640px) {
+    .year summary { grid-template-columns: 1fr auto; gap: 8px 16px; }
+    .peek { grid-column: 1 / -1; grid-row: 2; }
+    .peek img { width: 52px; height: 52px; }
+    .year[open] .peek { display: none; }
+  }
+
+  .grid {
+    display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 32px 28px; padding: 8px 0 48px;
+  }
+  @media (max-width: 640px) { .grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px 14px; } }
+  .work {
+    display: flex; flex-direction: column; gap: 10px;
+    background: none; border: 0; padding: 0; text-align: left; color: inherit; font: inherit; cursor: zoom-in;
+  }
+  .work-frame { aspect-ratio: 4 / 5; background: var(--dark); display: flex; align-items: center; justify-content: center; overflow: hidden; }
+  .work-frame img { width: 100%; height: 100%; object-fit: contain; transition: transform .4s ease; }
+  .work:hover .work-frame img { transform: scale(1.03); }
+  .work-title { font-size: 15px; color: var(--body); line-height: 1.4; }
+  .work-status { font-size: 13px; color: var(--gold); }
+
+  .empty { margin: 0; color: var(--body); max-width: 34em; }
+
+  /* ---------- Single painting view ---------- */
+  dialog.viewer {
+    width: 100vw; height: 100dvh; max-width: none; max-height: none; margin: 0; padding: 0; border: 0;
+    background: var(--dark); color: var(--ink);
+  }
+  dialog.viewer::backdrop { background: var(--dark); }
+  .viewer-inner {
+    height: 100%; display: grid; grid-template-columns: minmax(0, 1fr) 340px;
+  }
+  .viewer-image { display: flex; align-items: center; justify-content: center; padding: 24px; min-height: 0; }
+  .viewer-image img { max-width: 100%; max-height: 100%; object-fit: contain; }
+  .viewer-info {
+    display: flex; flex-direction: column; gap: 22px; padding: 72px 32px 32px;
+    border-left: 1px solid var(--rule); overflow-y: auto;
+  }
+  .viewer-info h3 { margin: 0; font-family: var(--caps); font-weight: 400; font-size: 26px; line-height: 1.2; letter-spacing: 0.03em; }
+  .viewer-meta { margin: 0; color: var(--body); line-height: 1.7; }
+  .status { display: flex; align-items: center; gap: 10px; margin: 0; }
+  .status .dot { width: 10px; height: 10px; border-radius: 50%; background: var(--gold); }
+  .status.sold .dot, .status.private .dot { background: var(--muted); }
+  .viewer-nav { display: flex; justify-content: space-between; margin-top: auto; padding-top: 16px; border-top: 1px solid var(--rule); }
+  .icon-button {
+    background: none; border: 0; color: var(--body); font: inherit; font-family: var(--caps); letter-spacing: 0.08em;
+    font-size: 14px; padding: 12px 4px; min-height: 44px; min-width: 44px; cursor: pointer;
+  }
+  .icon-button:hover { color: var(--gold); }
+  .icon-button[disabled] { opacity: 0.3; cursor: default; }
+  .close { position: absolute; top: 12px; right: 16px; font-size: 28px; line-height: 1; z-index: 2; }
+  @media (max-width: 760px) {
+    .viewer-inner { grid-template-columns: 1fr; grid-template-rows: minmax(0, 1fr) auto; }
+    .viewer-image { padding: 56px 12px 8px; }
+    .viewer-info { border-left: 0; border-top: 1px solid var(--rule); padding: 18px 16px 16px; gap: 12px; max-height: 45dvh; }
+    .viewer-info h3 { font-size: 21px; }
+  }
+
+  /* ---------- About + contact ---------- */
+  .about { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 6fr); gap: clamp(32px, 6vw, 80px); align-items: start; }
+  .about-text { display: flex; flex-direction: column; gap: 20px; color: var(--body); }
+  .about-text p { margin: 0; }
+  .portrait { width: 100%; background: var(--dark); }
+  .about:not(:has(.portrait)) { grid-template-columns: minmax(0, 680px); }
+  @media (max-width: 760px) { .about { grid-template-columns: 1fr; } }
+  .contact { display: flex; flex-direction: column; gap: 14px; margin-top: 64px; scroll-margin-top: 80px; }
+  .contact h3 { margin: 0; font-family: var(--caps); font-weight: 400; font-size: 22px; letter-spacing: 0.04em; }
+  .contact-links { display: flex; flex-direction: column; gap: 2px; font-size: 20px; }
+  .contact-links a { padding: 8px 0; align-self: flex-start; }
+
+  footer {
+    display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px 24px;
+    padding: 28px clamp(16px, 5vw, 48px);
+    border-top: 1px solid var(--rule); color: var(--muted); font-size: 14px;
+  }
+  footer a { color: var(--muted); }
+</style>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <clipPath id="gb-s"><path d="M0,0 v30 h60 v-30 z"/></clipPath>
+    <clipPath id="gb-t"><path d="M30,15 h30 v15 z v15 h-30 z h-30 v-15 z v-15 h30 z"/></clipPath>
+    <symbol id="flag-dk" viewBox="0 0 37 28"><rect width="37" height="28" fill="#C8102E"/><rect x="12" width="4" height="28" fill="#fff"/><rect y="12" width="37" height="4" fill="#fff"/></symbol>
+    <symbol id="flag-gb" viewBox="0 0 60 30"><g clip-path="url(#gb-s)"><path d="M0,0 v30 h60 v-30 z" fill="#012169"/><path d="M0,0 L60,30 M60,0 L0,30" stroke="#fff" stroke-width="6"/><path d="M0,0 L60,30 M60,0 L0,30" clip-path="url(#gb-t)" stroke="#C8102E" stroke-width="4"/><path d="M30,0 v30 M0,15 h60" stroke="#fff" stroke-width="10"/><path d="M30,0 v30 M0,15 h60" stroke="#C8102E" stroke-width="6"/></g></symbol>
+  </defs>
+</svg>
+
+<header>
+  <a class="name" href="#top">Lasse Topbjerg Storgaard</a>
+  <nav class="menu" aria-label="Menu">
+    <a href="#vaerker"><span lang="da">Værker</span><span lang="en">Work</span></a>
+    <a class="js-retreat" href="https://lassetopbjerg.github.io/retreat/"><span lang="da">Malerefugium</span><span lang="en">Retreat</span></a>
+    <a href="#om"><span lang="da">Om</span><span lang="en">About</span></a>
+    <span class="flags">
+      <a class="flag-link" href="#dansk" lang="da" aria-label="Dansk" title="Dansk"><svg class="flag" width="21" height="16" aria-hidden="true"><use href="#flag-dk"/></svg></a>
+      <a class="flag-link" href="#english" lang="en" aria-label="English" title="English"><svg class="flag" width="32" height="16" aria-hidden="true"><use href="#flag-gb"/></svg></a>
+    </span>
+  </nav>
+</header>
+
+<div id="top" class="hero">
+  <img class="hero-img js-hero-img" alt="" hidden>
+  <div class="hero-text">
+    <p class="kicker"><span lang="da">Maler · Mols, Danmark</span><span lang="en">Painter · Mols, Denmark</span></p>
+    <h1>Lasse Topbjerg Storgaard</h1>
+    <p class="lede" lang="da">Oliemaleri i de gamle mestres tradition. Figurer, portrætter og landskabet ved Nationalpark Mols Bjerge.</p>
+    <p class="lede" lang="en">Oil painting in the tradition of the old masters. Figures, portraits and the landscape around Mols Bjerge National Park.</p>
+    <a class="button" href="#vaerker"><span lang="da">Se værkerne</span><span lang="en">See the work</span></a>
+  </div>
+</div>
+
+<section class="block" id="vaerker" aria-labelledby="work-title">
+  <div class="section-head">
+    <h2 id="work-title"><span lang="da">Værker</span><span lang="en">Work</span></h2>
+    <p class="note"><span lang="da">Fra 2015 til i dag, nyeste først. Vælg et år.</span><span lang="en">From 2015 to today, newest first. Choose a year.</span></p>
+  </div>
+  <div class="years js-years"></div>
+  <p class="empty js-empty" hidden>
+    <span lang="da">Værkerne bliver lagt op i øjeblikket. Skriv til mig, hvis du vil se noget bestemt.</span>
+    <span lang="en">The paintings are being added right now. Write to me if you would like to see something in particular.</span>
+  </p>
+</section>
+
+<section class="block" id="om" aria-labelledby="about-title">
+  <div class="about">
+    <img class="portrait js-portrait" src="portrait.jpg" alt="Lasse Topbjerg Storgaard" onerror="this.remove()">
+    <div class="about-text">
+      <h2 id="about-title"><span lang="da">Om</span><span lang="en">About</span></h2>
+      <p lang="da">Jeg maler i olie i de gamle mestres tradition: figurer, portrætter og landskabet omkring mig. Jeg bor på Mols, ved Nationalpark Mols Bjerge.</p>
+      <p lang="en">I paint in oil in the tradition of the old masters: figures, portraits and the landscape around me. I live in Mols, on the edge of Mols Bjerge National Park.</p>
+      <p lang="da">I 2026 studerede jeg hos Jan-Ove Tuv på Nerdrum-museet i Stavern. I juni 2027 kommer han til Mols og underviser på <a class="js-retreat" href="https://lassetopbjerg.github.io/retreat/">Malerefugium på Mols</a>.</p>
+      <p lang="en">In 2026 I studied with Jan-Ove Tuv at the Nerdrum Museum in Stavern. In June 2027 he comes to Mols to teach the <a class="js-retreat" href="https://lassetopbjerg.github.io/retreat/">Painting Retreat on Mols</a>.</p>
+      <p lang="da">Mine originale malerier er til salg, og jeg tager imod bestillinger på vægmalerier.</p>
+      <p lang="en">My original paintings are for sale, and I take commissions for murals.</p>
+
+      <div class="contact" id="kontakt">
+        <h3><span lang="da">Kontakt</span><span lang="en">Contact</span></h3>
+        <p class="note"><span lang="da">Køb af et maleri, bestilling af et vægmaleri eller et spørgsmål. Skriv eller ring.</span><span lang="en">Buying a painting, commissioning a mural or a question. Write or call.</span></p>
+        <div class="contact-links">
+          <a class="js-email" href="mailto:lassetopbjerg@gmail.com">lassetopbjerg@gmail.com</a>
+          <a class="js-phone" href="tel:+4531177506">+45 31 17 75 06</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <span>Lasse Topbjerg Storgaard · Mols</span>
+  <a class="js-retreat" href="https://lassetopbjerg.github.io/retreat/"><span lang="da">Malerefugium på Mols, juni 2027</span><span lang="en">Painting Retreat on Mols, June 2027</span></a>
+</footer>
+
+<dialog class="viewer js-viewer" aria-labelledby="viewer-title">
+  <button class="icon-button close js-close" type="button"><span aria-hidden="true">×</span><span class="js-t-close" style="position:absolute;left:-9999px">Luk</span></button>
+  <div class="viewer-inner">
+    <div class="viewer-image"><img class="js-v-img" alt=""></div>
+    <div class="viewer-info">
+      <h3 id="viewer-title" class="js-v-title"></h3>
+      <p class="viewer-meta js-v-meta"></p>
+      <p class="status js-v-status"><span class="dot" aria-hidden="true"></span><span class="js-v-status-text"></span></p>
+      <a class="button js-v-ask" href="#"></a>
+      <div class="viewer-nav">
+        <button class="icon-button js-prev" type="button"></button>
+        <button class="icon-button js-next" type="button"></button>
+      </div>
+    </div>
+  </div>
+</dialog>
+
+<script>
+(function () {
+  var site = window.SITE || {};
+  var T = {
+    da: { works: function (n) { return n === 1 ? "1 værk" : n + " værker"; },
+          untitled: "Uden titel", available: "Til salg", sold: "Solgt", "private": "Privateje",
+          ask: "Spørg om maleriet", askSold: "Spørg om et lignende", prev: "← Forrige", next: "Næste →", close: "Luk",
+          subject: "Om maleriet" },
+    en: { works: function (n) { return n === 1 ? "1 work" : n + " works"; },
+          untitled: "Untitled", available: "Available", sold: "Sold", "private": "Private collection",
+          ask: "Ask about this painting", askSold: "Ask about something similar", prev: "← Previous", next: "Next →", close: "Close",
+          subject: "About the painting" }
+  };
+
+  // ---- Language: link hash, then last choice, then browser language ----
+  function pickLang() {
+    if (location.hash === "#english") return "en";
+    if (location.hash === "#dansk") return "da";
+    try { var s = localStorage.getItem("lang"); if (s === "da" || s === "en") return s; } catch (e) {}
+    var n = (navigator.language || "da").slice(0, 2).toLowerCase();
+    return ["da", "nb", "nn", "no", "sv"].indexOf(n) >= 0 ? "da" : "en";
+  }
+  var lang = pickLang();
+  function setLang(l) {
+    lang = l;
+    document.documentElement.setAttribute("data-show", l);
+    document.documentElement.lang = l;
+    try { localStorage.setItem("lang", l); } catch (e) {}
+    renderGallery();
+  }
+  document.querySelectorAll(".flag-link").forEach(function (a) {
+    a.addEventListener("click", function (e) {
+      e.preventDefault();
+      setLang(a.getAttribute("lang"));
+      history.replaceState(null, "", location.pathname);
+    });
+  });
+
+  // ---- Site settings ----
+  if (site.retreatUrl) document.querySelectorAll(".js-retreat").forEach(function (a) { a.href = site.retreatUrl; });
+  if (site.email) document.querySelectorAll(".js-email").forEach(function (a) { a.href = "mailto:" + site.email; a.textContent = site.email; });
+  if (site.phone) document.querySelectorAll(".js-phone").forEach(function (a) { a.href = "tel:" + site.phone.replace(/\s/g, ""); a.textContent = site.phone; });
+
+  // ---- Data: newest year first, whatever order works.js is in ----
+  function yearKey(y) { var m = String(y).match(/\d{4}/g); return m ? Math.max.apply(null, m.map(Number)) : 0; }
+  var years = (window.WORKS || [])
+    .filter(function (y) { return y && y.works && y.works.length; })
+    .slice()
+    .sort(function (a, b) { return yearKey(b.year) - yearKey(a.year); });
+  var flat = [];
+  years.forEach(function (y) { y.works.forEach(function (w) { w._year = String(y.year); flat.push(w); }); });
+
+  function thumbOf(w) { return w.thumb || w.file.replace(/\/([^\/]+)$/, "/thumbs/$1"); }
+  function titleOf(w) { return (lang === "en" && w.titleEn) || w.title || T[lang].untitled; }
+  function el(tag, cls, text) { var e = document.createElement(tag); if (cls) e.className = cls; if (text != null) e.textContent = text; return e; }
+  function img(src, fallback, alt) {
+    var i = el("img"); i.loading = "lazy"; i.decoding = "async"; i.alt = alt || ""; i.src = src;
+    i.onerror = function () { if (fallback && i.src.indexOf(fallback) < 0) { i.src = fallback; } else { i.style.visibility = "hidden"; } };
+    return i;
+  }
+
+  // ---- Hero: a painting marked featured, else the newest ----
+  var heroWork = flat.filter(function (w) { return w.featured; })[0] || flat[0];
+  var hero = document.querySelector(".js-hero-img");
+  if (heroWork) { hero.src = heroWork.file; hero.hidden = false; hero.onerror = function () { hero.hidden = true; }; }
+
+  // ---- Gallery ----
+  var openYears = {};
+  function renderGallery() {
+    var box = document.querySelector(".js-years");
+    box.textContent = "";
+    document.querySelector(".js-empty").hidden = years.length > 0;
+    years.forEach(function (y, yi) {
+      var key = String(y.year);
+      var det = el("details", "year");
+      if (openYears[key] === undefined) openYears[key] = yi === 0;
+      det.open = openYears[key];
+      det.addEventListener("toggle", function () { openYears[key] = det.open; });
+
+      var sum = el("summary");
+      sum.appendChild(el("span", "year-label", key));
+      var peek = el("span", "peek"); peek.setAttribute("aria-hidden", "true");
+      y.works.slice(0, 6).forEach(function (w) { peek.appendChild(img(thumbOf(w), w.file)); });
+      sum.appendChild(peek);
+      sum.appendChild(el("span", "year-count", T[lang].works(y.works.length)));
+      det.appendChild(sum);
+
+      var grid = el("div", "grid");
+      y.works.forEach(function (w) {
+        var b = el("button", "work"); b.type = "button";
+        var frame = el("span", "work-frame");
+        frame.appendChild(img(thumbOf(w), w.file, titleOf(w) + ", " + key));
+        b.appendChild(frame);
+        if (w.title || w.titleEn) b.appendChild(el("span", "work-title", titleOf(w)));
+        if (w.status === "available") b.appendChild(el("span", "work-status", T[lang].available));
+        b.addEventListener("click", function () { openViewer(flat.indexOf(w)); });
+        grid.appendChild(b);
+      });
+      det.appendChild(grid);
+      box.appendChild(det);
+    });
+  }
+
+  // ---- Single painting view ----
+  var viewer = document.querySelector(".js-viewer");
+  var current = -1;
+  function q(s) { return viewer.querySelector(s); }
+  function openViewer(i) {
+    current = i;
+    var w = flat[i], t = T[lang];
+    var vi = q(".js-v-img"); vi.src = w.file; vi.alt = titleOf(w) + ", " + w._year;
+    q(".js-v-title").textContent = titleOf(w);
+
+    var meta = [w._year];
+    var medium = (lang === "en" && w.mediumEn) || w.medium; if (medium) meta.push(medium);
+    if (w.size) meta.push(w.size);
+    q(".js-v-meta").textContent = meta.join(" · ");
+
+    var st = q(".js-v-status");
+    st.className = "status js-v-status " + (w.status || "");
+    st.hidden = !t[w.status];
+    q(".js-v-status-text").textContent = t[w.status] || "";
+
+    var ask = q(".js-v-ask");
+    var canAsk = w.status !== "private";
+    ask.hidden = !canAsk;
+    ask.textContent = w.status === "sold" ? t.askSold : t.ask;
+    ask.href = "mailto:" + (site.email || "lassetopbjerg@gmail.com") + "?subject=" +
+      encodeURIComponent(t.subject + ": " + titleOf(w) + " (" + w._year + ")");
+
+    var prev = q(".js-prev"), next = q(".js-next");
+    prev.textContent = t.prev; next.textContent = t.next;
+    prev.disabled = i <= 0; next.disabled = i >= flat.length - 1;
+    q(".js-t-close").textContent = t.close;
+    if (!viewer.open) viewer.showModal();
+  }
+  q(".js-prev").addEventListener("click", function () { if (current > 0) openViewer(current - 1); });
+  q(".js-next").addEventListener("click", function () { if (current < flat.length - 1) openViewer(current + 1); });
+  q(".js-close").addEventListener("click", function () { viewer.close(); });
+  viewer.addEventListener("keydown", function (e) {
+    if (e.key === "ArrowLeft" && current > 0) openViewer(current - 1);
+    if (e.key === "ArrowRight" && current < flat.length - 1) openViewer(current + 1);
+  });
+  // Swipe on phones
+  var x0 = null;
+  viewer.addEventListener("touchstart", function (e) { x0 = e.touches[0].clientX; }, { passive: true });
+  viewer.addEventListener("touchend", function (e) {
+    if (x0 === null) return;
+    var dx = e.changedTouches[0].clientX - x0; x0 = null;
+    if (Math.abs(dx) < 50) return;
+    if (dx < 0 && current < flat.length - 1) openViewer(current + 1);
+    if (dx > 0 && current > 0) openViewer(current - 1);
+  });
+
+  setLang(lang);
+})();
+</script>
+</body>
+</html>

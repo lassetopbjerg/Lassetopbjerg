@@ -1,0 +1,4 @@
+# Keep project notes and tools off the published site
+exclude:
+  - CLAUDE.md
+  - tools
