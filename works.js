@@ -1,31 +1,116 @@
-// ============================================================
-// THE PAINTINGS
-// One block per year. The site sorts the years itself, newest
-// first, so the order here does not matter. Paintings show in the
-// order they are listed within each year.
-//
-// Each painting:
-//   file      the full-size image, e.g. "works/2024/01.jpg"
-//             (a smaller copy in works/2024/thumbs/01.jpg is used
-//             in the grid if it exists)
-//   title     Danish title (leave "" if it has none)
-//   titleEn   English title (optional; the Danish one is used if empty)
-//   medium    e.g. "Olie på lærred"      mediumEn: "Oil on canvas"
-//   size      e.g. "70 × 50 cm"
-//   status    "available" (til salg), "sold" (solgt),
-//             "private" (privateje) or "" (nothing shown)
-//   featured  true on ONE painting to show it at the top of the site
-//
-// Fill this file by running:  python3 tools/import_squarespace.py
-// ============================================================
+// Imported from lassetopbjerg.com (Squarespace) by tools/import_squarespace.py.
+// Fill in title, medium, size and status for each painting. See the notes
+// at the top of works.js in the repo for what each field means.
 
 window.WORKS = [
-  // {
-  //   year: "2024",
-  //   works: [
-  //     { file: "works/2024/01.jpg", title: "Selvportræt", titleEn: "Self-portrait",
-  //       medium: "Olie på lærred", mediumEn: "Oil on canvas", size: "60 × 50 cm",
-  //       status: "available", featured: true }
-  //   ]
-  // }
+  {
+    year: "2023–2024",
+    works: [
+      { file: "works/2023-2024/01.jpg", title: "", titleEn: "", medium: "", mediumEn: "", size: "", status: "" },
+      { file: "works/2023-2024/02.png", title: "", titleEn: "", medium: "", mediumEn: "", size: "", status: "" },
+      { file: "works/2023-2024/03.jpg", title: "", titleEn: "", medium: "", mediumEn: "", size: "", status: "" },
+      { file: "works/2023-2024/04.jpg", title: "", titleEn: "", medium: "", mediumEn: "", size: "", status: "" }
+    ]
+  },
+  {
+    year: "2022",
+    works: [
+      { file: "works/2022/01.jpg", title: "", titleEn: "", medium: "", mediumEn: "", size: "", status: "" },
+      { file: "works/2022/02.jpg", title: "", titleEn: "", medium: "", mediumEn: "", size: "", status: "" },
+      { file: "works/2022/03.jpg", title: "", titleEn: "", medium: "", mediumEn: "", size: "", status: "" },
+      { file: "works/2022/04.jpg", title: "", titleEn: "", medium: "", mediumEn: "", size: "", status: "" },
+      { file: "works/2022/05.jpg", title: "", titleEn: "", medium: "", mediumEn: "", size: "", status: "" }
+    ]
+  },
+  {
+    year: "2021",
+    works: [
+      { file: "works/2021/01.jpg", title: "", titleEn: "", medium: "", mediumEn: "", size: "", status: "" },
+      { file: "works/2021/02.jpg", title: "", titleEn: "", medium: "", mediumEn: "", size: "", status: "" },
+      { file: "works/2021/03.jpg", title: "", titleEn: "", medium: "", mediumEn: "", size: "", status: "" },
+      { file: "works/2021/04.jpg", title: "", titleEn: "", medium: "", mediumEn: "", size: "", status: "" },
+      { file: "works/2021/05.jpg", title: "", titleEn: "", medium: "", mediumEn: "", size: "", status: "" },
+      { file: "works/2021/06.jpg", title: "", titleEn: "", medium: "", mediumEn: "", size: "", status: "" }
+    ]
+  },
+  {
+    year: "2020",
+    works: [
+      { file: "works/2020/01.jpg", title: "", titleEn: "", medium: "", mediumEn: "", size: "", status: "" },
+      { file: "works/2020/02.jpg", title: "", titleEn: "", medium: "", mediumEn: "", size: "", status: "" },
+      { file: "works/2020/03.jpg", title: "", titleEn: "", medium: "", mediumEn: "", size: "", status: "" },
+      { file: "works/2020/04.jpg", title: "", titleEn: "", medium: "", mediumEn: "", size: "", status: "" },
+      { file: "works/2020/05.jpg", title: "", titleEn: "", medium: "", mediumEn: "", size: "", status: "" },
+      { file: "works/2020/06.jpg", title: "", titleEn: "", medium: "", mediumEn: "", size: "", status: "" },
+      { file: "works/2020/07.jpg", title: "", titleEn: "", medium: "", mediumEn: "", size: "", status: "" }
+    ]
+  },
+  {
+    year: "2019",
+    works: [
+      { file: "works/2019/01.jpg", title: "", titleEn: "", medium: "", mediumEn: "", size: "", status: "" },
+      { file: "works/2019/02.jpg", title: "", titleEn: "", medium: "", mediumEn: "", size: "", status: "" },
+      { file: "works/2019/03.jpg", title: "", titleEn: "", medium: "", mediumEn: "", size: "", status: "" },
+      { file: "works/2019/04.jpg", title: "", titleEn: "", medium: "", mediumEn: "", size: "", status: "" },
+      { file: "works/2019/05.jpg", title: "", titleEn: "", medium: "", mediumEn: "", size: "", status: "" },
+      { file: "works/2019/06.jpg", title: "", titleEn: "", medium: "", mediumEn: "", size: "", status: "" }
+    ]
+  },
+  {
+    year: "2018",
+    works: [
+      { file: "works/2018/01.jpeg", title: "", titleEn: "", medium: "", mediumEn: "", size: "", status: "" },
+      { file: "works/2018/02.jpg", title: "", titleEn: "", medium: "", mediumEn: "", size: "", status: "" },
+      { file: "works/2018/03.jpg", title: "", titleEn: "", medium: "", mediumEn: "", size: "", status: "" },
+      { file: "works/2018/04.png", title: "", titleEn: "", medium: "", mediumEn: "", size: "", status: "" },
+      { file: "works/2018/05.jpeg", title: "", titleEn: "", medium: "", mediumEn: "", size: "", status: "" },
+      { file: "works/2018/06.jpg", title: "", titleEn: "", medium: "", mediumEn: "", size: "", status: "" },
+      { file: "works/2018/07.jpg", title: "", titleEn: "", medium: "", mediumEn: "", size: "", status: "" }
+    ]
+  },
+  {
+    year: "2017",
+    works: [
+      { file: "works/2017/01.jpg", title: "", titleEn: "", medium: "", mediumEn: "", size: "", status: "" },
+      { file: "works/2017/02.jpg", title: "", titleEn: "", medium: "", mediumEn: "", size: "", status: "" },
+      { file: "works/2017/03.jpg", title: "", titleEn: "", medium: "", mediumEn: "", size: "", status: "" },
+      { file: "works/2017/04.jpg", title: "", titleEn: "", medium: "", mediumEn: "", size: "", status: "" },
+      { file: "works/2017/05.jpeg", title: "", titleEn: "", medium: "", mediumEn: "", size: "", status: "" },
+      { file: "works/2017/06.jpg", title: "", titleEn: "", medium: "", mediumEn: "", size: "", status: "" },
+      { file: "works/2017/07.jpg", title: "", titleEn: "", medium: "", mediumEn: "", size: "", status: "" },
+      { file: "works/2017/08.jpg", title: "", titleEn: "", medium: "", mediumEn: "", size: "", status: "" },
+      { file: "works/2017/09.jpg", title: "", titleEn: "", medium: "", mediumEn: "", size: "", status: "" },
+      { file: "works/2017/10.jpeg", title: "", titleEn: "", medium: "", mediumEn: "", size: "", status: "" }
+    ]
+  },
+  {
+    year: "2016",
+    works: [
+      { file: "works/2016/01.jpg", title: "", titleEn: "", medium: "", mediumEn: "", size: "", status: "" },
+      { file: "works/2016/02.jpg", title: "", titleEn: "", medium: "", mediumEn: "", size: "", status: "" },
+      { file: "works/2016/03.jpg", title: "", titleEn: "", medium: "", mediumEn: "", size: "", status: "" },
+      { file: "works/2016/04.jpg", title: "", titleEn: "", medium: "", mediumEn: "", size: "", status: "" },
+      { file: "works/2016/05.jpg", title: "", titleEn: "", medium: "", mediumEn: "", size: "", status: "" },
+      { file: "works/2016/06.jpg", title: "", titleEn: "", medium: "", mediumEn: "", size: "", status: "" },
+      { file: "works/2016/07.jpg", title: "", titleEn: "", medium: "", mediumEn: "", size: "", status: "" },
+      { file: "works/2016/08.jpg", title: "", titleEn: "", medium: "", mediumEn: "", size: "", status: "" },
+      { file: "works/2016/09.jpg", title: "", titleEn: "", medium: "", mediumEn: "", size: "", status: "" },
+      { file: "works/2016/10.jpg", title: "", titleEn: "", medium: "", mediumEn: "", size: "", status: "" },
+      { file: "works/2016/11.jpg", title: "", titleEn: "", medium: "", mediumEn: "", size: "", status: "" }
+    ]
+  },
+  {
+    year: "2015",
+    works: [
+      { file: "works/2015/01.jpg", title: "", titleEn: "", medium: "", mediumEn: "", size: "", status: "" },
+      { file: "works/2015/02.jpg", title: "", titleEn: "", medium: "", mediumEn: "", size: "", status: "" },
+      { file: "works/2015/03.jpg", title: "", titleEn: "", medium: "", mediumEn: "", size: "", status: "" },
+      { file: "works/2015/04.jpg", title: "", titleEn: "", medium: "", mediumEn: "", size: "", status: "" },
+      { file: "works/2015/05.jpg", title: "", titleEn: "", medium: "", mediumEn: "", size: "", status: "" },
+      { file: "works/2015/06.jpg", title: "", titleEn: "", medium: "", mediumEn: "", size: "", status: "" },
+      { file: "works/2015/07.jpg", title: "", titleEn: "", medium: "", mediumEn: "", size: "", status: "" },
+      { file: "works/2015/08.jpg", title: "", titleEn: "", medium: "", mediumEn: "", size: "", status: "" },
+      { file: "works/2015/09.jpg", title: "", titleEn: "", medium: "", mediumEn: "", size: "", status: "" }
+    ]
+  }
 ];
