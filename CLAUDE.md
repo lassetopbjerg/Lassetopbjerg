@@ -49,7 +49,7 @@ Lasse's principles: attention and clarity first; what is left out matters as muc
 
 ## Content facts (confirmed by Lasse)
 
-- Paints in oil in the old masters' tradition: figures, portraits, the landscape around Mols / Nationalpark Mols Bjerge.
+- NOT "in the old masters' tradition" (Lasse corrected this 3 Nov 2026). Works in many materials, mainly acrylics and oils. Background in visionary art, trained with many prominent teachers (no names given yet). Now leans more and more towards a classical approach: the human figure, archetypal symbolism, storytelling. Inspired by the old masters; strives for creative freedom; studying the old masters and nature gives him the tools to keep growing as an artist and a human. Lives in Mols by Nationalpark Mols Bjerge. Show ALL paintings, including the visionary work.
 - Studied with Jan-Ove Tuv at the Nerdrum Museum in Stavern in 2026. Jan-Ove teaches Malerefugium på Mols, 12–16 June 2027.
 - Original paintings for sale; takes mural commissions.
 - Contact: lassetopbjerg@gmail.com, +45 31 17 75 06.
