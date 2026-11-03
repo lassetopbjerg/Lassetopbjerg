@@ -4,6 +4,8 @@ Lasse Topbjerg Storgaard's own website (painter, Mols, Denmark), moving from Squ
 
 ## Status (3 Nov 2026)
 
+LIVE on https://lassetopbjerg.com since 3 Nov 2026 (CNAME file, HTTPS enforced). DNS still at Squarespace Domains (registrar until 2027-04-26): four A records to 185.199.108-111.153 and www CNAME to lassetopbjerg.github.io; Squarespace Defaults preset deleted. Next: transfer the domain to one.com (unlock + auth code at Squarespace), recreate the same records at one.com, then cancel the Squarespace website plan.
+
 Step 1 done 3 Nov 2026: 65 paintings from 9 years (2015 to 2023–2024) imported into works/ and works.js; images over 2500px were shrunk. Titles, sizes and status are still empty.
 
 The site is built and tested with demo images, and pushed to GitHub (3 Nov 2026), but it has **no paintings yet**. The old Squarespace site is still live, so do NOT cancel Squarespace or move the domain until the new site is live and Lasse has checked it.
