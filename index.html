@@ -136,38 +136,43 @@
   }
   @media (prefers-reduced-motion: reduce) { .band a, .band img { transition: none; } }
 
-  /* Year index: recognition over recall, always in reach */
-  .year-index {
-    position: sticky; top: 75px; z-index: 5;
-    display: flex; gap: 4px; overflow-x: auto; scrollbar-width: none;
-    margin: 0 calc(-1 * clamp(16px, 5vw, 48px)) 8px; padding: 10px clamp(16px, 5vw, 48px);
-    background: rgba(23, 18, 14, 0.94); border-bottom: 1px solid var(--rule);
+  /* Gallery: one fold-out per year, newest first; small paintings that open large */
+  .years { margin-top: 32px; border-top: 1px solid var(--rule); }
+  .year { border-bottom: 1px solid var(--rule); scroll-margin-top: 90px; }
+  .year summary {
+    list-style: none; cursor: pointer;
+    display: grid; grid-template-columns: auto 1fr auto; align-items: center; gap: 24px;
+    padding: 20px 0; min-height: 44px;
   }
-  .year-index::-webkit-scrollbar { display: none; }
-  .year-index a {
-    flex: none; font-family: var(--caps); font-size: 14px; letter-spacing: 0.06em;
-    padding: 8px 12px; color: var(--muted); text-decoration: none; white-space: nowrap;
+  .year summary::-webkit-details-marker { display: none; }
+  .year-label { font-family: var(--caps); font-size: 24px; letter-spacing: 0.04em; min-width: 5.5em; }
+  .peek { display: flex; gap: 8px; overflow: hidden; }
+  .peek img { flex: none; width: 64px; height: 64px; object-fit: cover; background: var(--dark); opacity: 0.85; }
+  .year[open] .peek { visibility: hidden; }
+  .year-mark { font-size: 24px; line-height: 1; color: var(--gold); }
+  .year-mark::after { content: "+"; }
+  .year[open] .year-mark::after { content: "–"; }
+  @media (max-width: 640px) {
+    .year { scroll-margin-top: 108px; }
+    .year summary { grid-template-columns: 1fr auto; gap: 8px 16px; }
+    .peek { grid-column: 1 / -1; grid-row: 2; }
+    .peek img { width: 52px; height: 52px; }
+    .year[open] .peek { display: none; }
   }
-  .year-index a:hover, .year-index a.is-here { color: var(--gold); }
-  @media (max-width: 640px) { .year-index { top: 93px; } }
-
-  .year { padding-top: 48px; scroll-margin-top: 140px; }
-  .year-head { display: flex; align-items: baseline; gap: 18px; margin-bottom: 24px; }
-  .year-head h3 { margin: 0; font-family: var(--caps); font-weight: 400; font-size: clamp(28px, 4.5vw, 44px); letter-spacing: 0.03em; }
-  .year-head .count { color: var(--muted); font-size: 15px; }
-  .year-head::after { content: ""; flex: 1; height: 1px; background: var(--rule); align-self: center; }
-
-  /* Salon hang: paintings keep their own proportions */
-  .hang { columns: 3 260px; column-gap: 28px; }
+  .grid {
+    display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 32px 28px; padding: 8px 0 48px;
+  }
+  @media (max-width: 640px) { .grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px 14px; } }
   .work {
-    display: block; width: 100%; break-inside: avoid; margin: 0 0 32px;
+    display: flex; flex-direction: column; gap: 10px;
     background: none; border: 0; padding: 0; text-align: left; color: inherit; font: inherit; cursor: zoom-in;
   }
-  .work img { width: 100%; height: auto; background: var(--dark); box-shadow: 0 14px 28px -16px rgba(0,0,0,.9); }
-  .label { display: flex; justify-content: space-between; gap: 12px; padding-top: 10px; font-size: 15px; color: var(--body); line-height: 1.4; }
-  .label .status { color: var(--gold); white-space: nowrap; }
-  .work:hover img { outline: 1px solid var(--gold-deep); outline-offset: 6px; }
-  @media (max-width: 640px) { .hang { columns: 2; column-gap: 14px; } .work { margin-bottom: 20px; } .label { font-size: 14px; } }
+  .work-frame { aspect-ratio: 4 / 5; background: var(--dark); display: flex; align-items: center; justify-content: center; overflow: hidden; }
+  .work-frame img { width: 100%; height: 100%; object-fit: contain; transition: transform .4s ease; }
+  .work:hover .work-frame img { transform: scale(1.03); }
+  .work-title { font-size: 15px; color: var(--body); line-height: 1.4; }
+  .work-status { font-size: 13px; color: var(--gold); }
   .empty { margin: 0; color: var(--body); max-width: 34em; }
 
   /* ---------- Viewer ---------- */
@@ -252,8 +257,7 @@
   <div class="band-wrap js-band-wrap">
     <nav class="band js-band" aria-label="Et maleri fra hvert år / One painting from each year"></nav>
   </div>
-  <nav class="year-index js-index" aria-label="År / Years"></nav>
-  <div class="js-years"></div>
+  <div class="years js-years"></div>
   <p class="empty js-empty" hidden>
     <span lang="da">Værkerne bliver lagt op i øjeblikket. Skriv til mig, hvis du vil se noget bestemt.</span>
     <span lang="en">The paintings are being added right now. Write to me if you would like to see something in particular.</span>
@@ -377,59 +381,52 @@
       var a = el("a"); a.href = "#" + slug(y.year); a.setAttribute("aria-label", String(y.year)); a.title = String(y.year);
       var im = img(thumbOf(pick), pick.file, ""); im.loading = "eager";
       im.onerror = function () { if (im.src.indexOf(pick.file) < 0) im.src = pick.file; else a.remove(); };
+      a.addEventListener("click", function (e) {
+        e.preventDefault();
+        var key = String(y.year), det = document.getElementById(slug(key));
+        openYears[key] = true;
+        if (det) { det.open = true; det.scrollIntoView(); }
+      });
       a.appendChild(im); band.appendChild(a);
     });
   })();
 
+  // Gallery: one fold-out per year, the newest open from the start
+  var openYears = {};
   function renderGallery() {
-    var box = document.querySelector(".js-years"), index = document.querySelector(".js-index");
-    box.textContent = ""; index.textContent = "";
+    var box = document.querySelector(".js-years");
+    box.textContent = "";
     document.querySelector(".js-empty").hidden = years.length > 0;
-    index.hidden = years.length < 2;
-    years.forEach(function (y) {
+    years.forEach(function (y, yi) {
       var key = String(y.year);
-      var a = el("a", null, key); a.href = "#" + slug(key); index.appendChild(a);
+      var det = el("details", "year"); det.id = slug(key);
+      if (openYears[key] === undefined) openYears[key] = yi === 0;
+      det.open = openYears[key];
+      det.addEventListener("toggle", function () { openYears[key] = det.open; });
 
-      var sec = el("section", "year"); sec.id = slug(key);
-      var head = el("div", "year-head");
-      head.appendChild(el("h3", null, key));
-      sec.appendChild(head);
-      var hang = el("div", "hang");
+      var sum = el("summary");
+      sum.appendChild(el("span", "year-label", key));
+      var peek = el("span", "peek"); peek.setAttribute("aria-hidden", "true");
+      y.works.slice(0, 6).forEach(function (w) { peek.appendChild(img(thumbOf(w), w.file)); });
+      sum.appendChild(peek);
+      var mark = el("span", "year-mark"); mark.setAttribute("aria-hidden", "true");
+      sum.appendChild(mark);
+      det.appendChild(sum);
+
+      var grid = el("div", "grid");
       y.works.forEach(function (w) {
         var b = el("button", "work"); b.type = "button";
-        b.appendChild(img(thumbOf(w), w.file, titleOf(w) + ", " + key));
-        var hasTitle = w.title || w.titleEn, avail = w.status === "available";
-        if (hasTitle || avail) {
-          var lab = el("span", "label");
-          lab.appendChild(el("span", null, hasTitle ? titleOf(w) : ""));
-          if (avail) lab.appendChild(el("span", "status", T[lang].available));
-          b.appendChild(lab);
-        }
+        var frame = el("span", "work-frame");
+        frame.appendChild(img(thumbOf(w), w.file, titleOf(w) + ", " + key));
+        b.appendChild(frame);
+        if (w.title || w.titleEn) b.appendChild(el("span", "work-title", titleOf(w)));
+        if (w.status === "available") b.appendChild(el("span", "work-status", T[lang].available));
         b.addEventListener("click", function () { openViewer(flat.indexOf(w)); });
-        hang.appendChild(b);
+        grid.appendChild(b);
       });
-      sec.appendChild(hang);
-      box.appendChild(sec);
+      det.appendChild(grid);
+      box.appendChild(det);
     });
-    watchYears();
-  }
-
-  // Mark the year you are looking at in the index
-  var io;
-  function watchYears() {
-    if (!("IntersectionObserver" in window)) return;
-    if (io) io.disconnect();
-    io = new IntersectionObserver(function (entries) {
-      entries.forEach(function (e) {
-        if (!e.isIntersecting) return;
-        document.querySelectorAll(".js-index a").forEach(function (a) {
-          var on = a.getAttribute("href") === "#" + e.target.id;
-          a.classList.toggle("is-here", on);
-          if (on) a.scrollIntoView({ block: "nearest", inline: "nearest" });
-        });
-      });
-    }, { rootMargin: "-40% 0px -55% 0px" });
-    document.querySelectorAll(".year").forEach(function (s) { io.observe(s); });
   }
 
   var viewer = document.querySelector(".js-viewer"), current = -1;
