@@ -43,7 +43,7 @@ Lasse's principles: attention and clarity first; what is left out matters as muc
 
 - NOT "in the old masters' tradition" (Lasse corrected this 3 Nov 2026). Works in many materials, mainly acrylics and oils. Background in visionary art, trained with many prominent teachers (no names given yet). Now leans more and more towards a classical approach: the human figure, archetypal symbolism, storytelling. Inspired by the old masters; strives for creative freedom; studying the old masters and nature gives him the tools to keep growing as an artist and a human. Lives in Mols by Nationalpark Mols Bjerge. Show ALL paintings, including the visionary work.
 - The About text does not mention Jan-Ove (paragraph removed 3 Nov 2026 at Lasse's request); the retreat is reached through the menu and footer.
-- Original paintings for sale; takes commissions, including murals. The Danish About text is Lasse's own wording (8 Nov 2026), so keep it as written; the English follows it.
+- Original paintings for sale; takes commissions, including murals. The Danish About text is Lasse's own wording (second version, 8 Nov 2026; supersedes the summary above where they differ: mainly drawing, oil and acrylic; no line on creative freedom), so keep it as written; the English follows it.
 - Contact: lassetopbjerg@gmail.com, +45 31 17 75 06.
 
 ## Still open
