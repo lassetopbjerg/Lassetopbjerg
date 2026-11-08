@@ -6,8 +6,8 @@ window.WORKS = [
   {
     year: "2023–2024",
     works: [
+      { file: "works/2023-2024/02.png", featured: true, title: "", titleEn: "", medium: "", mediumEn: "", size: "", status: "" },
       { file: "works/2023-2024/01.jpg", title: "", titleEn: "", medium: "", mediumEn: "", size: "", status: "" },
-      { file: "works/2023-2024/02.png", title: "", titleEn: "", medium: "", mediumEn: "", size: "", status: "" },
       { file: "works/2023-2024/03.jpg", title: "", titleEn: "", medium: "", mediumEn: "", size: "", status: "" },
       { file: "works/2023-2024/04.jpg", title: "", titleEn: "", medium: "", mediumEn: "", size: "", status: "" }
     ]
